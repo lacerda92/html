@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description"
+		content="Nessa aula estudaremos o conteúdo de formulários em HTML, algo extremamente importante para criarmos uma comunicação com o nosso usuário">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<!--não é necessário indexar links e nem a própria página-->
+	<!--<link rel="stylesheet" type="text/css" href=""> somente se for necessário importar um CSS-->
+	<style>
+
+	</style>
+	<!--se for necessário usar CSS dentro do próprio arquivo-->
+	<title>Formulários em HTML</title>
+</head>
+
+<body>
+	<h1>Crie sua Conta do Hello Pizza</h1>
+	<div>
+		<form method="GET" action=""><!--o action define pra onde estamos enviando o formulário/nosso servidor-->
+			<!--atributos de validação-->
+			<!--a partir daqui, sempre utilizaremos o required para obrigar o usuário a preencher um campo determinado já que é uma atributo de validação -->
+			<!--maxlenght e minlenght também são atributos de validação-->
+			<!--checked também é um atributo de validação-->
+			<!--o valor type(tipo) também é um atributo de validação-->
+			<!--pattern também pode ser usado como atributo de validação-->
+			<fieldset>
+				<!--importante!-->
+				<legend>
+					<h3>Conta</h3>
+				</legend>
+				<!--dando um nome para esse grupo-->
+				<!--serve para agruparmos elementos juntos corretamente-->
+				<div>
+					<label>E-mail:</label>
+					<input type="email" name="email" required />
+				</div>
+
+				<div>
+					<label>Senha:</label>
+					<input type="password" name="senha" required/>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					<h3>Dados Pessoais</h3>
+				</legend>
+				<div>
+					<label>Nome Completo:</label>
+					<input type="text" placeholder="Eduardo Lacerda Braz" name="nome_completo" required />
+					<!--por padrão, todo input é do tipo text, entretanto é recomendado específicar como text para garantir que o navegador o reconheça como tal-->
+				</div>
+
+				<div>
+					<label>Telefone:</label>
+					<input type="text" placeholder="(21) 99999-9999" pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}" name="telefone" required/>
+					<!--o atributo placeholder é uma dica de como queremos receber determinado dado vindo do usuário-->
+				</div>
+				<div>
+					<label>Sexo:</label>
+					<input type="radio" value="masculino" name="sexo" checked/><!--aqui não é preciso o uso de required-->
+					<!--é preciso definir um valor para o usuário-->
+					<!--o atributo do tipo checked, marca essa opção como padrão, ele fica apenas em 1 das opções disponíveis dentro daquele grupo-->
+					<label>Masculino</label>
+					<!--é preciso o uso de mais de uma label nesse caso para que a opção seja vista corretamente-->
+					<input type="radio" value="feminino" name="sexo"/>
+					<!--o name é usado para criar um grupo com os mesmos valores-->
+					<label>Feminino</label>
+				</div>
+
+				<div>
+					<label>Data de Nascimento</label>
+					<input type="date" name="data_de_nascimento" required/>
+					<!--o date serve para abrimos o calendário e o usuário escolher uma determinada data-->
+				</div>
+
+				<div>
+					<label>Foto de perfil</label>
+					<input type="file" accept="image/*" name="foto_de_perfil"/>
+					<!--importante-->
+					<!--o input type file é necessário para carregar um arquivo para o site-->
+					<!--o atributo accept faz com que tenhamos poder sobre QUAL arquivo aceitamos para determinada função-->
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					<h3>Endereço</h3>
+				</legend>
+				<div>
+					<label>Rua:</label>
+					<input type="text" name="rua" required/>
+				</div>
+
+				<div>
+					<label>Complemento:</label>
+					<input type="text" name="complemento"/>
+				</div>
+
+				<div>
+					<label>Número</label>
+					<input type="number" min="1" max="9999" name="numero" />
+					<!--utilizamos o min e o max para delimitarmos o nosso range entre os números aceitos no nosso formulário-->
+				</div>
+
+				<div>
+					<label>Cidade:</label>
+					<input type="text" name="cidade" required/>
+				</div>
+
+				<div>
+					<label>Estado:</label>
+					<select name="estado" required>
+						<!--novo elemento da nossa tarefa, ele dá o efeito de seleção-->
+						<option value="Rio de Janeiro">Rio de Janeiro</option>
+						<!--dar opção de escolha dentro do select-->
+						<!--no value, poderia ser usado a UF dos estados para que fique mais fácil a transmissão de dados entre usuário e servidor-->
+						<option value="São Paulo">São Paulo</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					<h3>Anuncio</h3>
+				</legend>
+				<div>
+					<label>Como você conheceu a Hello Pipzza</label>
+					<textarea maxlength="256" name="" id="" cols="30" rows="10"
+						placeholder="Diga-nos como você nos conheceu, dúvidas, sugestões, reclamações e elogios" name="como_conheceu_a_hello_pizza"></textarea>
+					<!--maxlength = diz a quantidade máxima de caracteres possíveis dentro do nosso textarea-->
+				</div>
+
+				<div>
+					<label>Você gostaria de receber nossas promoções? Cadastre-se</label>
+					<input type="checkbox" checked name="oferta_por_email" />
+				</div>
+			</fieldset>
+
+			<input type="submit" value="Enviar"/><!--usando a tag input-->
+			<button type="submit">Enviar</button><!--usando a tag button-->
+
+		</form>
+	</div>
+</body>
+
+</html>
