@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'><!--reconhecimento de caracteres especiais-->
+    <title>Formulário de Orçamento</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Formulário básico, da empresa Engenharia Elétrica e Eletrônica Lacerda Ltda, para marcação de data para
+    realizar orçamento e pendências.">
+    <meta name="robots" content="noindex"><!--não há necessidade de nofollow, pois não haverá links-->
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'> somente se quiser usar CSS externo-->
+    <style>
+
+    </style><!--se precisar de estilizar a página com CSS dentro do própria arquivo-->
+   
+</head>
+<body>
+    <div>
+        <h1>Marque seu orçamento</h1>
+        <form method="POST" action="professoreduardolacerda@gmail.com"><!--o atributo action serve para indicar para onde o formulário será enviado-->
+            <fieldset>
+                <legend><h3>Dados Para Contato</h3></legend>
+                <div>
+                    <label>Nome Completo:</label>
+                    <input type="text" placeholder="Eduardo Lacerda Braz" name="nome_completo" required/>
+                </div>
+                <div>
+                    <label>E-mail:</label>
+                    <input type="text" name="email" required/>
+                </div>
+                <div>
+                    <label>Telefone/Celular:</label>
+                    <input type="text" placeholder="(24) 99999-9999" pattern="\([0-9]{2})[\s][0-9]{5}-[0-9]{4}" required>
+                </div>
+                <div>
+                    <label>Melhor Horário para Contato:</label>
+                    <input type="time" name="data_visita" required/>
+                </div>
+            </fieldset>
+            <!--importante-->
+            <!--foi usado atributos de validação como pattern,required,type-->
+            <fieldset>
+                <legend><h3>Endereço</h3></legend>
+                <div>
+                    <labe>Rua:</labe>
+                    <input type="text" name="endereço_rua" required />
+                </div>
+                <div>
+                    <label>Complemento:</label>
+                    <input type="text" name="endereço_complemento"/>
+                </div>
+                <div>
+                    <label>Ponto de referência:</label>
+                    <input type="text" name="endereço_ponto_de_referência" required maxlength="200"/><!--foi usado maxlenght pra não ter que ficar 
+                    lendo um texto enorme só por causa do ponto de referência-->
+                </div>
+                <div>
+                    <label>Número</label>
+                    <input type="number" min="0" max="99999" name="endereço_número" required />
+                </div>
+                <div>
+                    <label>CEP:</label>
+                    <input type="text" placeholder="25665-000" pattern="\[0-9]{5}-[0-9]{3}" required>
+                </div>
+                <div>
+                    <label>Cidade</label>
+                    <input type="text" name="endereço_cidade" required />
+                </div>
+                <div>
+                    <label>Estado</label>
+                    <select name="endereço_estado" required><!--para selecionar o estado, é preciso o uso de select e de option-->
+                        <option value="AC">Acre</option><!--é preciso dar valor por conta do servidor que vai receber a informação (abreviação fica mais leve)-->
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Foto da residência/empresa local do serviço</label>
+                    <input type="file" accept="image/*" name="foto_do_local">
+                </div>
+                <div>
+                    <label>Melhor Data Para Visita:</label>
+                    <input type="date" name="data_visita" required/>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>Serviço</h3></legend>
+                <div>
+                    <label>Fale sobre o seu problema:</label>
+                    <textarea placeholder="Cite quais problemas você tem enfrentado na sua rede elétrica, se tem algum projeto já em mente e quais suas dúvidas, assim fica mais fácil realizar o seu orçamento." cols="45" rows="10" maxlength="500"
+                    name="qual_problema"></textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>Sobre a gente</h3></legend>
+                <div>
+                    <label>Como ficou sabendo da gente?</label>
+                    <label>Facebook</label>
+                    <input type="checkbox" name="ficou_sabendo_pelo_facebook"/>
+                    <label>Instagram</label>
+                    <input type="checkbox" name="ficou_sabendo_pelo_instagram"/>
+                    <label>LinkedIn</label>
+                    <input type="checkbox" name="ficou_sabendo_pelo_linkedin"/>
+                    <label>YouTube</label>
+                    <input type="checkbox" name="ficou_sabendo_pelo_youtube"/>
+                    <label>pesquisa na internet</label>
+                    <input type="checkbox" name="ficou_sabendo_pela_internet"/>
+                    <label>Indicação? Deixe o nome da pessoa</label>
+                    <input type="text" name="foi_indicado_por_quem"/>
+                </div>
+            </fieldset>
+
+            <h4>Em breve entraremos em contato!</h4>
+            <button type="submit">Enviar</button><!--usando a tag button-->
+
+
+        </form>
+    </div>
+</body>
+</html>
